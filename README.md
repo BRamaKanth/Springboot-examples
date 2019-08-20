@@ -1,2 +1,6 @@
 # Springboot-examples
-Exploring CURD operations using springboot
+Exploring various examples using springboot
+
+employee-demo-springboot   -  CURD operations using SpringBoot with Swagger 2.0 ,JDBCTemplate and INmemory database(H2) .
+
+
