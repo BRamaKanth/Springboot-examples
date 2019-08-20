@@ -1,2 +1,2 @@
 # Springboot-examples
-Exploring various options using springboot
+Exploring CURD operations using springboot
