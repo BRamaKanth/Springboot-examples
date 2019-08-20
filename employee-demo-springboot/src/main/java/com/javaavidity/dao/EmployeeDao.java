@@ -27,4 +27,15 @@ public class EmployeeDao extends BaseDao {
 	public Boolean deleteEmpByID(String empid) {
 		return this.jdbcTemplate.update("delete from employee where empId=?", empid) > 0 ? true : false;
 	}
+
+	public Boolean createNewEmployee(Employee emp) {
+		return this.jdbcTemplate.update(
+				"INSERT INTO employee (empId,name,hireDate,salary) VALUES (?,?,TO_DATE(?, 'yyyy-MM-DD'),?)",
+				emp.getEmpId(), emp.getName(), emp.getHireDate(), emp.getSalary()) > 0 ? true : false;
+	}
+
+	public Boolean updateEmpDetails(Employee emp) {
+		return this.jdbcTemplate.update("update employee set name=? ,hireDate=? ,salary=? where empId=?", emp.getName(),
+				emp.getHireDate(), emp.getSalary(), emp.getEmpId()) > 0 ? true : false;
+	}
 }

@@ -30,4 +30,14 @@ public class EmployeeServiceImpl implements EmployeeService {
 	public Boolean deleteEmpByID(String empid) {
 		return employeeDao.deleteEmpByID(empid);
 	}
+
+	@Override
+	public Boolean createNewEmployee(Employee emp) {
+		return employeeDao.createNewEmployee(emp);
+	}
+
+	@Override
+	public Boolean updateEmpDetails(Employee emp) {
+		return employeeDao.updateEmpDetails(emp);
+	}
 }
