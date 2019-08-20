@@ -12,4 +12,5 @@ public interface EmployeeService {
 
 	public Optional<Employee> getEmpDataById(String empid);
 	public List<Employee> getAllEmpDetails();
+	public Boolean deleteEmpByID(String empid);
 }

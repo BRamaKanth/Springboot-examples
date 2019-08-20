@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -43,7 +44,15 @@ public class EmployeeRestController {
 		List<Employee> getEmpDataList = employeeService.getAllEmpDetails();
 		return ResponseEntity.ok(getEmpDataList);
 	}
-	
+
+	@DeleteMapping("emp/{eid}")
+	@ApiOperation(value = "Delete Employee Details By Id", notes = "Provide Employee id for details", response = Boolean.class)
+	public ResponseEntity<HttpStatus> deleteEmpById(@RequestParam(value = "eid") String empid) {
+		if(employeeService.deleteEmpByID(empid)) {
+			return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+		}
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+	}
 	
 	
 }

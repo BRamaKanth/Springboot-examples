@@ -25,4 +25,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 	public List<Employee> getAllEmpDetails() {
 		return employeeDao.getAllEmpDetails();
 	}
+
+	@Override
+	public Boolean deleteEmpByID(String empid) {
+		return employeeDao.deleteEmpByID(empid);
+	}
 }

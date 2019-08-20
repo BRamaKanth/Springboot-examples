@@ -23,4 +23,8 @@ public class EmployeeDao extends BaseDao {
 	public List<Employee> getAllEmpDetails() {
 		return jdbcTemplate.query("Select * from employee", employeeRowMapper);
 	}
+
+	public Boolean deleteEmpByID(String empid) {
+		return this.jdbcTemplate.update("delete from employee where empId=?", empid) > 0 ? true : false;
+	}
 }
